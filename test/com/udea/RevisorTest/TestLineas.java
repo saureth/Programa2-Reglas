@@ -74,6 +74,13 @@ public class TestLineas {
 	public void TestAllanaComillasSinComillas() 
 	{
 		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.AllanarComillas("asd f").equals("asd f"));
+	}	
+	
+	@Test
+	public void TestAllanaComillasAbreCierra() 
+	{
+		Clasificador miClasi = new Clasificador();
 		assertTrue(miClasi.AllanarComillas("asdas\"1234\" dads").equals("asdas dads"));
 	}	
 	

@@ -19,23 +19,30 @@ public class TestReglas
 	}
 
 	@Test
-	public void TestVariable2()
+	public void TestVariableComoMetodo()
 	{
 		TipoRespuesta tr = Reglas.RevizarVariable("public void Metodo()");
 		assertTrue(tr == TipoRespuesta.no_aplica);
 	}
 	
 	@Test
-	public void TestVariable3()
+	public void TestVariableConComentarios()
 	{
 		TipoRespuesta tr = Reglas.RevizarVariable("public float k = 2;//Hola mundo");
 		assertTrue(tr == TipoRespuesta.correcto);
 	}
-	
+
 	@Test
-	public void TestVariable4()
+	public void TestVariableEstatica()
 	{
 		TipoRespuesta tr = Reglas.RevizarVariable("public static float k;//Hola mundo");
 		assertTrue(tr == TipoRespuesta.correcto);
+	}
+	
+	@Test
+	public void TestVariableMayuscula()
+	{
+		TipoRespuesta tr = Reglas.RevizarVariable("public static float Kabra;");
+		assertTrue(tr == TipoRespuesta.incorrecto);
 	}
 }

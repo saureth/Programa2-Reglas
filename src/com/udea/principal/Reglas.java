@@ -24,16 +24,19 @@ public class Reglas
 		}
 		if(!p.substring(p.length()-1).equals(";"))
 		{
+			System.out.println("La línea no es una variable");
 			return TipoRespuesta.no_aplica;
 		}
-		/*
 
 		String[] palabras = linea.split(" ");
+
+		/*
 		List<String> palabras = new ArrayList<String>();
 		for (int i = 0; i < lineas.length; i++) {
 			String string = lineas[i];
 			palabras.add(string);
 		}
+		*/
 		
 		int i = 0;
 		String[] palabrasIgnorables = {"public", "private", "static"};
@@ -46,9 +49,18 @@ public class Reglas
 				}
 			}
 		}
-		*/
-		
-		
+		if ((i+1) >= palabras.length)
+		{
+			System.out.println("La cariable no parece tener nombre");
+			return TipoRespuesta.incorrecto;
+		}
+		String nombrePalabra = palabras[i+1];
+		String pl = nombrePalabra.substring(0, 1);
+		if (pl.equals(pl.toUpperCase()))
+		{
+			System.out.println("La variable debería iniciar en minúscula");
+			return TipoRespuesta.incorrecto;
+		}
 		return respuesta;
 	}
 }

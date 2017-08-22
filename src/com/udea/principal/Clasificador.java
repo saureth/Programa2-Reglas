@@ -46,24 +46,22 @@ public class Clasificador {
 	
 	public String AllanarComillas(String l) 
 	{
+		if(l.equals("")) 
+		{
+			return "";
+		}
 		if(!l.contains("\"")) 
 		{
 			return l;
 		}
 		else 
 		{
-			System.out.println("inicialmente: "+l);
 			int c1 = l.indexOf("\"");
 			int c2 = l.indexOf("\"",c1+1);
-			System.out.println("posicion1: "+c1);			
-			System.out.println("posicion2: "+c2);
 			String aux = l.substring(c1,c2+1);
-			System.out.println("Lo cortado es: "+aux);
 			l = l.replace(aux, "");
-			System.out.println("Resultado: "+l);
 			return l;
 		}
-		//return "";
 	}
 	
 }

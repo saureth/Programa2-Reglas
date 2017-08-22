@@ -38,11 +38,24 @@ public class TestReglas
 		TipoRespuesta tr = Reglas.RevizarVariable("public static float k;//Hola mundo");
 		assertTrue(tr == TipoRespuesta.correcto);
 	}
-	
+
 	@Test
 	public void TestVariableMayuscula()
 	{
 		TipoRespuesta tr = Reglas.RevizarVariable("public static float Kabra;");
 		assertTrue(tr == TipoRespuesta.incorrecto);
+	}
+	@Test
+	public void TestMetodoSinParentesis()
+	{
+		TipoRespuesta tr = Reglas.RevizarMetodo("Public void Casa(");
+		assertTrue(tr == TipoRespuesta.incorrecto);
+	}
+	
+	@Test
+	public void TestMetodoSinMetodoCorrecto()
+	{
+		TipoRespuesta tr = Reglas.RevizarMetodo("Public void Casa(float casa)");
+		assertTrue(tr == TipoRespuesta.correcto);
 	}
 }

@@ -68,5 +68,43 @@ public class TestContarLineas {
 		int resultado = ContarLineas.ContarLineas(programa);
 		assertTrue(resultado==5);
 	}
+	
+	@Test
+	public void TestContarLienasInstruccionesMismaLinea(){
+		List<String> programa = new ArrayList<>();
+		programa.add("j=j+1;k=k+1;k--");
+		int resultado = ContarLineas.ContarLineas(programa);
+		assertTrue(resultado==3);
+	}
+	
+	@Test
+	public void TestContarLineasDosFor(){
+		List<String> programa = new ArrayList<>();
+		programa.add("for(int i=0;i<3;i++){");
+		programa.add("for(int j=0;j<4;j++){k=k+1;}");
+		programa.add("}");
+		int resultado = ContarLineas.ContarLineas(programa);
+		assertTrue(resultado==7);
+	}
+	
+	@Test
+	public void TestContarLineasSentenciaIf(){
+		List<String> programa = new ArrayList<>();
+		programa.add("if(a==1){");
+		int resultado = ContarLineas.ContarLineas(programa);
+		assertTrue(resultado==1);
+	}
+	
+	@Test
+	public void TestContarLineasDosSentenciasIf(){
+		List<String> programa = new ArrayList<>();
+		programa.add("if(i==1){");
+		programa.add("if(j==2){if(s==3){j=j+1;}}");
+		programa.add("}");
+		int resultado = ContarLineas.ContarLineas(programa);
+		assertTrue(resultado==4);
+		
+		
+	}
 
 }

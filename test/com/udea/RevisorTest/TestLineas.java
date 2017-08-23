@@ -42,28 +42,6 @@ public class TestLineas {
 	}	
 	
 	@Test
-	public void TestClasificadorVariable1() 
-	{
-		Clasificador miClasi = new Clasificador();
-		assertTrue(miClasi.ClasificarLinea("int x = 0;")==TipoLinea.variable);
-	}	
-	
-	/*@Test
-	public void TestClasificadorVariable2() 
-	{
-		Clasificador miClasi = new Clasificador();
-		assertTrue(miClasi.ClasificarLinea("int x = 0; //hola ")==TipoLinea.variable);
-	}	*/
-	
-	@Test
-	public void TestClasificadorVariable3() 
-	{
-		Clasificador miClasi = new Clasificador();
-		System.out.println(miClasi.ClasificarLinea("public int x = 0;"));
-		assertTrue(miClasi.ClasificarLinea("public int x = 0;")==TipoLinea.variable);
-	}		
-	
-	@Test
 	public void TestAllanaComillasNulo() 
 	{
 		Clasificador miClasi = new Clasificador();
@@ -82,6 +60,63 @@ public class TestLineas {
 	{
 		Clasificador miClasi = new Clasificador();
 		assertTrue(miClasi.AllanarComillas("asdas\"1234\" dads").equals("asdas dads"));
+	}
+	
+	@Test
+	public void TestAllanaParentesisNulo() 
+	{
+		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.AllanarParentesis("").equals(""));
+	}	
+	
+	@Test
+	public void TestAllanaParentesisSinParentesis() 
+	{
+		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.AllanarParentesis("asd f").equals("asd f"));
+	}
+	
+	@Test
+	public void TestAllanaParentesisAbreCierra() 
+	{
+		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.AllanarParentesis("asdas(1234) dads").equals("asdas dads"));
+	}
+	
+	@Test
+	public void TestLlamadaMetodoSinParametros() 
+	{
+		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.ClasificarLinea("asd();")==TipoLinea.llamadaMetodo);
+	}
+	
+	@Test
+	public void TestLlamadaMetodoConParametros() 
+	{
+		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.ClasificarLinea("asd(asdasdasd);")==TipoLinea.llamadaMetodo);
+	}
+	
+	@Test
+	public void TestClasificadorVariableLocal() 
+	{
+		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.ClasificarLinea("int x = 0;")==TipoLinea.variable);
+	}	
+		
+	@Test
+	public void TestClasificadorVariableGlobal() 
+	{
+		Clasificador miClasi = new Clasificador();
+		System.out.println(miClasi.ClasificarLinea("public int x = 0;"));
+		assertTrue(miClasi.ClasificarLinea("public int x = 0;")==TipoLinea.variable);
+	}		
+	
+	@Test
+	public void TestClasificadorVariableLocalConComentario() 
+	{
+		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.ClasificarLinea("int x = 0; //hola ")==TipoLinea.variable);
 	}	
 	
 }

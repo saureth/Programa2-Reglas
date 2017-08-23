@@ -22,6 +22,12 @@ public class Reglas
 		{
 			p = p.substring(0, indiceComentario);
 		}
+		indiceComentario = p.indexOf("/*");
+		if(indiceComentario != -1)
+		{
+			p = p.substring(0, indiceComentario);
+		}
+		
 		if(!p.substring(p.length()-1).equals(";"))
 		{
 			System.out.println("La línea no es una variable");
@@ -62,5 +68,12 @@ public class Reglas
 			return TipoRespuesta.incorrecto;
 		}
 		return respuesta;
+	}
+	
+	public static TipoRespuesta RevizarMetodo(String linea)
+	{
+		if(!(linea.contains("(") &&linea.contains(")")))
+			return TipoRespuesta.incorrecto;
+		return TipoRespuesta.correcto;
 	}
 }

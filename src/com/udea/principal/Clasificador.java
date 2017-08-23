@@ -47,8 +47,7 @@ public class Clasificador {
 				}
 				else return TipoLinea.variable;
 			}			
-		}	
-		return TipoLinea.nulo;
+		}
 	}
 	
 	

@@ -119,4 +119,18 @@ public class TestLineas {
 		assertTrue(miClasi.ClasificarLinea("int x = 0; //hola ")==TipoLinea.variable);
 	}	
 	
+	@Test
+	public void TestDeclaracionMetodo1() 
+	{
+		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.ClasificarLinea("public void CrearElemento()")==TipoLinea.declaracionMetodo);
+	}	
+	
+	@Test
+	public void TestDeclaracionMetodo2() 
+	{
+		Clasificador miClasi = new Clasificador();
+		assertTrue(miClasi.ClasificarLinea("void CrearElemento()")==TipoLinea.declaracionMetodo);
+	}
+	
 }

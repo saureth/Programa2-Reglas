@@ -95,16 +95,6 @@ public class TestContarLineas {
 		assertTrue(resultado==1);
 	}
 	
-	@Test
-	public void TestContarLineasDosSentenciasIf(){
-		List<String> programa = new ArrayList<>();
-		programa.add("if(i==1){");
-		programa.add("if(j==2){if(s==3){j=j+1;}}");
-		programa.add("}");
-		int resultado = ContarLineas.ContarLineas(programa);
-		assertTrue(resultado==4);
-		
-		
-	}
+	
 
 }

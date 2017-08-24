@@ -28,7 +28,14 @@ public class ContarLineas {
 			} else if (linea.length() == 1 && (linea.equals("{") || linea.equals("}"))) {
 
 			} else {
-				
+				if(linea.contains("{")){
+					int posicion = linea.indexOf("{");
+					int diferencia = linea.length()-posicion;
+					if(diferencia>1){
+						String sub[] = linea.split("{");
+						
+					}
+				}
 				String sublineas[] = linea.split(";");
 				if(sublineas.length>1){
 					contador+=sublineas.length;

@@ -51,11 +51,23 @@ public class TestReglas
 		TipoRespuesta tr = Reglas.RevizarMetodo("Public void Casa(");
 		assertTrue(tr == TipoRespuesta.incorrecto);
 	}
-	
+
 	@Test
-	public void TestMetodoSinMetodoCorrecto()
+	public void TestMetodoCorrecto()
 	{
-		TipoRespuesta tr = Reglas.RevizarMetodo("Public void Casa(float casa)");
+		TipoRespuesta tr = Reglas.RevizarMetodo("public void Casa(float casa)");
 		assertTrue(tr == TipoRespuesta.correcto);
+	}
+	@Test
+	public void TestMetodoMinuscula()
+	{
+		TipoRespuesta tr = Reglas.RevizarMetodo("public void casa(float casa)");
+		assertTrue(tr == TipoRespuesta.incorrecto);
+	}
+	@Test
+	public void TestMetodoConPuntoYComa()
+	{
+		TipoRespuesta tr = Reglas.RevizarMetodo("public void Casa(float casa);");
+		assertTrue(tr == TipoRespuesta.incorrecto);
 	}
 }

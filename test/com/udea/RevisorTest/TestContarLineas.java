@@ -95,6 +95,32 @@ public class TestContarLineas {
 		assertTrue(resultado==1);
 	}
 	
+	@Test
+	public void TestContarLineasComentario(){
+		List<String> programa = new ArrayList<>();
+		programa.add("//Prueba");
+		int resultado = ContarLineas.ContarLineas(programa);
+		assertTrue(resultado==0);
+	}
 	
+	@Test
+	public void TestContarLineasProgramaCompleto(){
+		List<String> programa = new ArrayList<>();
+		programa.add("/*Programa 1");
+		programa.add("*/");
+		programa.add("//Iniciando metodo");
+		programa.add("for(int i=0;i<3;i++){");
+		programa.add("if(i=3){");
+		programa.add("system.out.println(i)");
+		programa.add("while(j<2){");
+		programa.add("system.out.println(j);");
+		programa.add("j++;");
+		programa.add("}");
+		programa.add("}");
+		programa.add("system.out.println(termino)");
+		
+		int resultado = ContarLineas.ContarLineas(programa);
+		assertTrue(resultado==9);
+	}
 
 }

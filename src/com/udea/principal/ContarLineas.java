@@ -13,7 +13,14 @@ public class ContarLineas {
 		}
 
 		for (String linea : programa) {
-			if (linea.contains("for")) {
+			if(linea.contains("//")){
+				
+			}else if(linea.contains("/*")){
+				
+			}else if(linea.contains("*/")){
+				
+			}
+			else if (linea.contains("for")) {
 				contador += 3;
 				if(linea.contains("{")){
 					int position = linea.indexOf("{");

@@ -24,4 +24,20 @@ public class TestContarClases {
 		assertTrue(cantidad == -1);
 	}
 	
+	@Test
+	public void TestCantidadEsCero() 
+	{
+		ContarClases ca = new ContarClases();
+		int cantidad = ca.Contar("./bin/");
+		assertTrue(cantidad == 0);
+	}
+	
+	@Test
+	public void TestCantidadMayorCero() 
+	{
+		ContarClases ca = new ContarClases();
+		int cantidad = ca.Contar("./src/com/udea/principal");
+		assertTrue(cantidad > 0);
+	}
+	
 }

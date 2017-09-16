@@ -57,7 +57,7 @@ public class LectorArchivos
 		 List<String> p = new ArrayList<String>();
 	     try 
 	     {
-	    	String completeUrl = new File("").getAbsolutePath() + url;
+	    	String completeUrl = url;
 	    	archivo = new File(completeUrl);
 			fr = new FileReader (archivo);
 		} catch (FileNotFoundException e) 

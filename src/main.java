@@ -10,6 +10,7 @@ public class main {
 	public static void main(String[] args) throws NumberFormatException, IOException{
 
 		GenerarReporte.GenerarElReporte();
+		GenerarReporte.GenerarElReporteAnterior();
 	}
 
 }

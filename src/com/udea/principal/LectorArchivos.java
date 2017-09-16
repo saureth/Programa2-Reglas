@@ -57,10 +57,14 @@ public class LectorArchivos
 	     try 
 	     {
 	    	String completeUrl = new File("").getAbsolutePath() + url;
+			System.out.println("1 = " + completeUrl);
 	    	archivo = new File(completeUrl);
+			System.out.println("2");
 			fr = new FileReader (archivo);
+			System.out.println("3" );
 		} catch (FileNotFoundException e) 
 	    {
+			System.out.println("Null porque no encontro" + url);
 			return null;
 		}
 	     br = new BufferedReader(fr);
@@ -73,6 +77,7 @@ public class LectorArchivos
 			}
 		} catch (IOException e) 
 	    {
+			System.out.println("Hunbo problema de entrada o salida");
 			return null;
 		}
 	     return p;

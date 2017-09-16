@@ -36,7 +36,7 @@ public class ContarClases {
 		}
 	}
 
-	public List<String> RetornaNombres(String string) {
+	public static List<String> RetornaNombres(String string) {
 		if(string.isEmpty()) {
 			return null;
 		}

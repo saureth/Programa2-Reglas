@@ -26,7 +26,7 @@ public class ContarClases {
 		}
 	}
 	
-	public List<String> RetornaLista(String string) {
+	public static List<String> RetornaLista(String string) {
 		File c = new File(string);
 		if(!c.exists()) {
 			return null;

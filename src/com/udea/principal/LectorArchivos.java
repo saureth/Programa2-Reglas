@@ -15,7 +15,6 @@ public class LectorArchivos
 	static FileReader fr;
 	static BufferedReader br;
 	static JFileChooser jfc;
-	static List<String> p = new ArrayList<String>();
 	
 	public List<String> ObtenerCodigo() 
 	{
@@ -28,6 +27,7 @@ public class LectorArchivos
 	
 	public List<String> AbrirArchivo(String url)
 	{
+		 List<String> p = new ArrayList<String>();
 	     try 
 	     {
 	    	String completeUrl = new File("").getAbsolutePath() + "/Archivos/" + url;
@@ -54,14 +54,12 @@ public class LectorArchivos
 	
 	public static List<String> Abrir(String url)
 	{
+		 List<String> p = new ArrayList<String>();
 	     try 
 	     {
 	    	String completeUrl = new File("").getAbsolutePath() + url;
-			System.out.println("1 = " + completeUrl);
 	    	archivo = new File(completeUrl);
-			System.out.println("2");
 			fr = new FileReader (archivo);
-			System.out.println("3" );
 		} catch (FileNotFoundException e) 
 	    {
 			System.out.println("Null porque no encontro" + url);

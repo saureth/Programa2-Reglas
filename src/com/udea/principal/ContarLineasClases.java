@@ -30,10 +30,29 @@ public class ContarLineasClases {
 			    if(!mat.matches()) {
 			    	List<String> programa = new ArrayList<>();
 			    	programa.add(linea);
-			    	cantidad += ContarLineas.ContarLineas(programa);
+			    	cantidad += ContarLineas2.ContarLineas(programa);
 			    }
 			}
 			
+		}
+		return cantidad;
+	}
+	public static int ContarLineasMetodosClases(List<String> clase) {
+		int cantidad = 0;
+		
+		if(clase==null) {
+			return 0;
+		}
+		if(clase.isEmpty()) {
+			return 0;
+		}
+		//System.out.println(clase);
+		for (String linea : clase) {
+			Pattern pat = Pattern.compile("([\t]{0,10})(public|static|private|protected) ([a-zA-Z0-9<> ]{1,100})[(]([a-zA-Z0-9,<>){ ]{1,100})");
+		    Matcher mat = pat.matcher(linea);
+		    if(mat.matches()) {
+		    	cantidad += 1;
+		    }
 		}
 		return cantidad;
 	}

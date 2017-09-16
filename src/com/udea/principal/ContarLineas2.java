@@ -1,5 +1,7 @@
 package com.udea.principal;
 
+import java.util.List;
+
 public class ContarLineas2 
 {
 	public static int ValorLinea(String linea)
@@ -26,5 +28,16 @@ public class ContarLineas2
 		return 1;
 	}
 	
+	public static int ContarLineas(List<String> lista)
+	{
+		int n = 0;
+		
+		for (String linea : lista) {
+			
+			n += ValorLinea(linea);
+		}
+		
+		return n;
+	}
 	
 }

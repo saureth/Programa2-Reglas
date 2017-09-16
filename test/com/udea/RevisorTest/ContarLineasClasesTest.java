@@ -72,6 +72,33 @@ public class ContarLineasClasesTest {
 		System.out.println(resultado);
 		assertTrue(resultado==5);
 	}
+	@Test
+	public void contarLineasClasesConMetodosAtributosYComentarios() {
+		List<String> clase = new ArrayList<>();
+		clase.add("package com.udea.Revisor;");
+		clase.add("import java.util.ArrayList;");
+		clase.add("public class Sumar{");
+		clase.add("private int numero1;");
+		clase.add("private int numero2=2;");
+		clase.add("public void sumar(){");
+		
+		
+		clase.add("/* cinaishdnoaip sd");
+		clase.add("//sdkljifhb skldjfh lsid");
+		clase.add("wisudhf lsidf */");
+		
+		clase.add("j+1;");
+		clase.add("}");
+		clase.add("k*f;");
+		clase.add("public void restar(int k,int j){");
+		clase.add("j+1;");
+		clase.add("}");
+		clase.add("}");
+		
+		int resultado = ContarLineasClases.ContarLineasClase(clase);
+		System.out.println(resultado);
+		assertTrue(resultado==5);
+	}
 
 }
 

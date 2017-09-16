@@ -5,4 +5,13 @@ public class ContadorMetodos {
 	{
 		return 0;
 	}
+	
+	public String ArreglarClase(String clase)
+	{
+		String  respuesta = clase;
+		
+		
+		
+		return respuesta;
+	}
 }

@@ -11,11 +11,11 @@ import javax.swing.JFileChooser;
 
 public class LectorArchivos 
 {
-	File archivo;
-	FileReader fr;
-	BufferedReader br;
-	JFileChooser jfc;
-	List<String> p = new ArrayList<String>();
+	static File archivo;
+	static FileReader fr;
+	static BufferedReader br;
+	static JFileChooser jfc;
+	static List<String> p = new ArrayList<String>();
 	
 	public List<String> ObtenerCodigo() 
 	{
@@ -51,4 +51,31 @@ public class LectorArchivos
 		}
 	     return p;
 	}
+	
+	public static List<String> Abrir(String url)
+	{
+	     try 
+	     {
+	    	String completeUrl = new File("").getAbsolutePath() + url;
+	    	archivo = new File(completeUrl);
+			fr = new FileReader (archivo);
+		} catch (FileNotFoundException e) 
+	    {
+			return null;
+		}
+	     br = new BufferedReader(fr);
+	     String linea;
+	     try 
+	     {
+			while((linea=br.readLine())!=null)
+			{
+			    p.add(linea);
+			}
+		} catch (IOException e) 
+	    {
+			return null;
+		}
+	     return p;
+	}
+	
 }
